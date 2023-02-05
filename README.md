@@ -92,6 +92,12 @@ The example above update reflects the following status:
 | 10 | Activating |
 | 11 | Activating Complete |
 
+
+## MQTT Demo:
+A simple ESP82XX Arduino program is included in the *examples* folder of this repo. The program can be used to read the current state from the LEVO machine and send it to an MQTT broker. From there you can integrate it into any number of smart home systems (For example, I've integrated it into Home Assistant for push notifications to my phone).
+
+
+
 ## Communication from the ESP82XX -> STM32:
 Comms from the ESP module to the STM cpu are not as well known documented at this point but there are a couple of known signals that it sends. At bootup the ESP module prints out some boot debug info before switching to UART1 (GPIO 2 TX I believe). The ESP runs Mongoose OS. More information about the Mongoose installation can be found in the next section. 
 
