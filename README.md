@@ -3,12 +3,19 @@
 A Repository of information for LEVO II Oil Infusion machines and how to get the data that LEVO took away from it's customers. The LEVO II was marketed as a "smart" device that could be monitored and controlled from an app. Unfortunately the developers removed the monitoring/control features from the app and converted the app into a pseudo storefront for their products. This left many users upset as that was a big selling point vs other infusion machines. This was certainly a feature I liked when I first recieved my unit. 
 
 **What this repository is:** 
+
 This repository is a place to store information & examples about the machine & the communication protocols between the main CPU (STM32) and the wifi chipset (ESP WROOM-02 / ESP8266 variant). By understanding the communication between these two chips, we can parse data from the main CPU with a separate microcontroller to monitor the status of the device & generate our own commands to control it. I have created this repo in case it may be useful to any other hardware hackers out there with the tools, abilities, and knowledge to crack open their own machine and poke around. This repo also exists as a means to warn anyone who cares to know that there are some unfortunate **security vulnerabilites exposed from this machine such as network SSID and passwords.**
 
+
+
 **What this repository is not:** 
+
 This is not a repository for information of the modification of the original firmwares or any attempts to hack/modify/gain access to any LEVO web services. This is purely to re-gain the access to LOCAL features that the original developers removed by understanding the communications between the main CPU and wifi chipset.
 
+
+
 **Warning:** 
+
 In order to do most of what is outlined in this repository you will need to open your machine and solder wires to the main circuitboard that contains the CPU and WiFi chipset and be familiar with using Arduino-type microcontrollers. *This will absolutely void any warranty that you may have and could be dangerous if you are unfamiliar with opening up mains voltage electronics*. Please be smart and don't attempt anything you are not comfortable with. You could easily brick your machine or hurt yourself if you are not careful. I take no responsibility for damaged hardware or harm that may be caused by opening or modifying your LEVO machine. ***If you have not done something like this before or do not feel comfortable working near mains electronics please do not attempt to open your LEVO Infusion machine.*** You have been warned. 
 
 **Now on to the fun stuff!**
@@ -35,9 +42,13 @@ Comms from the main CPU are fairly easy to parse (which allows us to monitor the
 (ex `UPDATE_STATE|{"newtemp":180,"newtime":3,"newtype":2,"dstat":2}`)
 
 ***Known basic update strings:***
+
 `RESET_CYCLE` sent when selecting a new cycle
+
 `IMALIVE` sent at boot-up (sometimes takes 10-20 seconds?)
+
 `CYCLE_COMPLETE` sent when any given cycle is completed
+
 `WARMUP_COMPLETE` send when warmup is completed and the target cycle starts
 
 
@@ -53,7 +64,6 @@ The example above update reflects the following status:
 -	time left in the cycle is `3 minutes`
 -	the cycle type is `Infusing`
 -	the current state is `Warming`
--	
 
 **`newtemp`** target temperature in °F (Even if I change to °C on my machine it sends updates in °F)
 
