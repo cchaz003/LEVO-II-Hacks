@@ -14,16 +14,17 @@ In order to do most of what is outlined in this repository you will need to open
 **Now on to the fun stuff!**
 
 ## About the Hardware:
-The LEVO II is controlled by a pair of microcontrollers. The main CPU is (as far as I can tell) an STM32 type chip. I haven't poked at it too much but the label on the top looks like an STM32 to me. The other more interesting find is that the WiFi Chipset is an ESP82XX type module (ESP WROOM-02 by the looks of it). This is a well known and widely used module in the DIY community so when I saw it I knew this machine would be hackable. 
+The LEVO II is controlled by a pair of microcontrollers. The main CPU is (as far as I can tell) an STM32 type chip. I haven't poked at it too much but the label on the top looks like an STM32 to me. The other more interesting find is that the WiFi Chipset is an ESP82XX type module (ESP WROOM-02 by the looks of it). This is a well known and widely used module in the DIY community so when I saw it I knew this machine would be hackable. An image of the main PCB is pictured below (image from FCC docs).
+[mainPCB.png](/images/mainPCB.png)
 
 You can see images of some of the internal components found here: https://fccid.io/2AQQX857722/Internal-Photos/Internal-photos-4055926
 
-As an aside: fccid.io is a great place to learn about electronics before you open them up. All electronics that get FCC certification must be tested and documented and fccid stores most (all?) electronics with an FCC number. A great place to start learning about a piece of hardware is to google something like "Levo II fccid" or even lookup the fcc code on the label of the product. 
+As an aside: fccid.io is a great place to learn about electronics before you open them up! All electronics that get FCC certification must be tested and documented and fccid stores most (all?) electronics with an FCC number. A great place to start learning about a piece of hardware is to google something like "Levo II fccid" or even lookup the fcc code on the label of the product. 
 
 # Communications between the main CPU and WiFi Chipset
 
 
-The communications between the STM32 and ESP82XX chipset are done via UART at 115200 baud using the native ESP serial pins (GPIO 3=rx and GPIO 1=tx). I haven't checked which pins the Tx/Rx are using on the STM32 but as long as we know which lines to tap on the ESP module that shouldn't really matter. Along the right side of the ESP module (wifi antenna up) are a pair of soldered jumper bridges, these bridges are the TX/RX connection that we can tap into to monitor the serial flow. 
+The communications between the STM32 and ESP82XX chipset are done via 3.3V UART at 115200 baud using the native ESP serial pins (GPIO 3=rx and GPIO 1=tx). I haven't checked which pins the Tx/Rx are using on the STM32 but as long as we know which lines to tap on the ESP module that shouldn't really matter. Along the right side of the ESP module (wifi antenna up) are a pair of soldered jumper bridges, these bridges are the TX/RX connection that we can tap into to monitor the serial flow (see image below). 
 
 ## Communication from the STM32 -> ESP82XX:
 
