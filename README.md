@@ -2,13 +2,13 @@
 # LEVO-II-Hacks
 A Repository of information for LEVO II Oil Infusion machines and how to get the data that LEVO took away from it's customers. The LEVO II was marketed as a "smart" device that could be monitored and controlled from an app. Unfortunately the developers removed the monitoring/control features from the app which left many users upset as that was a big selling point vs other infusion machines. 
 
-**What this repository is**
-This repository is a place to store information & examples about the machine & the communication protocols between the main CPU (STM32) and the wifi chipset (ESP WROOM-02 / ESP8266 variant). By understanding the communication between these two chips, we can parse data from the main CPU with a separate microcontroller to monitor the status of the device & generate our own commands to control it. I have created this repo in case it may be useful to any other hardware hackers out there with the tools, abilities, and knowledge to crack open their own machine. 
+**What this repository is:** 
+This repository is a place to store information & examples about the machine & the communication protocols between the main CPU (STM32) and the wifi chipset (ESP WROOM-02 / ESP8266 variant). By understanding the communication between these two chips, we can parse data from the main CPU with a separate microcontroller to monitor the status of the device & generate our own commands to control it. I have created this repo in case it may be useful to any other hardware hackers out there with the tools, abilities, and knowledge to crack open their own machine and poke around. This repo also exists as a means to warn anyone who cares to know that there are some unfortunate **security vulnerabilites exposed from this machine such as network SSID and passwords.**
 
-**What this repository is not**
-This is not a repository for information of the modification of the original firmwares or any attempts to hack/modify/gain access to any LEVO web services. This is purely to re-gain the access to features that the original developers removed.
+**What this repository is not:** 
+This is not a repository for information of the modification of the original firmwares or any attempts to hack/modify/gain access to any LEVO web services. This is purely to re-gain the access to LOCAL features that the original developers removed.
 
-**Warning**
+**Warning:** 
 In order to do most of what is outlined in this repository you will need to open your machine and solder wires to the main circuitboard that contains the CPU and WiFi chipset and be familiar with using Arduino type microcontrollers. *This will absolutely void any warranty that you may have and could be dangerous if you are unfamiliar with opening up mains voltage electronics*. Please be smart and don't attempt anything you are not comfortable with. You could easily brick your machine or hurt yourself if you are not careful. I take no responsibility for damaged hardware or harm that may be cause by opening or modifying your LEVO machine. ***If you have not done something like this before please do not attempt to open your LEVO Infusion machine.*** You have been warned. 
 
 **Now on to the fun stuff!**
@@ -112,7 +112,7 @@ For some reason the developers decided to leave an open web-server running on th
 ## Files of note:
 
 **`init.js`** 
-One great thing they left for us to peruse is the main .js file for communication between the ESP and STM32. This was very helpful in determining what some of those signals meant and will continue to be useful as we discover more about controlling the STM32. Please have a look at this file if you are interested in helping out with understanding more about the ESP->STM32 comms!
+One great thing the developers left for us to peruse is the main `init.js` file for communication between the ESP and STM32. This was very helpful in determining what some of what those signals meant and will continue to be useful as we discover more about monitoring & controlling the main STM32. Please have a look at this file if you are interested in helping out with understanding more about the ESP<->STM32 comms!
 
 **`conf0.json`** 
 This file appears to contain basic/default config information related to the ESP hardware and initial configuration of the device. 
