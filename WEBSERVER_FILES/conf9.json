@@ -1,0 +1,36 @@
+{
+  "device": {
+    "id": "YOUR LEVO AWS THING NAME"
+  },
+  "sys": {
+    "atca": {
+      "enable": true
+    }
+  },
+  "mqtt": {
+    "enable": true,
+    "server": "a2azopowdj431m-ats.iot.us-east-1.amazonaws.com:8883",
+    "ssl_cert": "aws-YOUR_AWS_THING_NAME.crt.pem",
+    "ssl_key": "ATCA:0",
+    "ssl_ca_cert": "ca.pem",
+    "ssl_cipher_suites": "TLS-ECDHE-ECDSA-WITH-AES-128-GCM-SHA256:TLS-RSA-WITH-AES-128-GCM-SHA256"
+  },
+  "aws": {
+    "thing_name": "YOUR LEVO AWS THING NAME"
+  },
+  "dash": {
+    "token": "YOUR LEVO MONGOOSE OS DASH TOKEN"
+  },
+  "wifi": {
+    "ap": {
+      "enable": false,
+      "hidden": true,
+      "keep_enabled": false
+    },
+    "sta": {
+      "enable": true,
+      "ssid": "YOUR NETWORK SSID",
+      "pass": "YOUR NETWORK PASSWORD"
+    }
+  }
+}
