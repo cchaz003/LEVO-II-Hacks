@@ -15,7 +15,8 @@ In order to do most of what is outlined in this repository you will need to open
 
 ## About the Hardware:
 The LEVO II is controlled by a pair of microcontrollers. The main CPU is (as far as I can tell) an STM32 type chip. I haven't poked at it too much but the label on the top looks like an STM32 to me. The other more interesting find is that the WiFi Chipset is an ESP82XX type module (ESP WROOM-02 by the looks of it). This is a well known and widely used module in the DIY community so when I saw it I knew this machine would be hackable. An image of the main PCB is pictured below (image from FCC docs).
-[mainPCB.png](/images/mainPCB.png)
+
+![LEVO II main PCB](https://github.com/cchaz003/LEVO-II-Hacks/blob/main/images/mainPCB.png)
 
 You can see images of some of the internal components found here: https://fccid.io/2AQQX857722/Internal-Photos/Internal-photos-4055926
 
@@ -25,6 +26,8 @@ As an aside: fccid.io is a great place to learn about electronics before you ope
 
 
 The communications between the STM32 and ESP82XX chipset are done via 3.3V UART at 115200 baud using the native ESP serial pins (GPIO 3=rx and GPIO 1=tx). I haven't checked which pins the Tx/Rx are using on the STM32 but as long as we know which lines to tap on the ESP module that shouldn't really matter. Along the right side of the ESP module (wifi antenna up) are a pair of soldered jumper bridges, these bridges are the TX/RX connection that we can tap into to monitor the serial flow (see image below). 
+
+![LEVO II ESP82XX pins](https://github.com/cchaz003/LEVO-II-Hacks/blob/main/images/ESP82XX.png)
 
 ## Communication from the STM32 -> ESP82XX:
 
