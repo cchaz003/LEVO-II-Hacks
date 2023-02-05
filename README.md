@@ -1,5 +1,5 @@
 
-# LEVO-II-Hacks
+# LEVO II Monitor and (eventually) Controller
 A Repository of information for LEVO II Oil Infusion machines and how to get the data that LEVO took away from it's customers. The LEVO II was marketed as a "smart" device that could be monitored and controlled from an app. Unfortunately the developers removed the monitoring/control features from the app and converted the app into a pseudo storefront for their products. This left many users upset as that was a big selling point vs other infusion machines. This was certainly a feature I liked when I first recieved my unit. 
 
 **What this repository is:** 
